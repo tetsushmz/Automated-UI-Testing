@@ -4,19 +4,19 @@
     I want to be able to build a WPF app
 
 Background:
-    Given I have removed "WpfApplication" folder, if any, in "C:\temp"
-    And I have started Visual Studio 2019
+    Given I have started Visual Studio 2019
+    And I have removed "WpfAppForAutomatedUiTesting" folder, if any, in "C:\temp"
 
 @tag1
 Scenario: Creating and running a new WPF app
     When I create a new WPF app with the following info
-    | Project name   | Location | Solution name  | Framework          |
-    | WpfApplication | C:\temp  | WpfApplication | .NET Framework 4.6 |
+    | Project name                | Location | Solution name               | Framework          |
+    | WpfAppForAutomatedUiTesting | C:\temp  | WpfAppForAutomatedUiTesting | .NET Framework 4.6 |
     Then Visual Studio main window opens
     When I enter the following code to "MainWindow.xaml"
 """
 <Window
-    x:Class="WpfApplication.MainWindow"
+    x:Class="WpfAppForAutomatedUiTesting.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -40,7 +40,7 @@ using System;
 using System.Diagnostics;
 using System.Windows.Threading;
 
-namespace WpfApplication
+namespace WpfAppForAutomatedUiTesting
 {
     public partial class MainWindow
     {

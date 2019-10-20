@@ -25,11 +25,7 @@ namespace AutomatedUiTesting
         [Given(@"I have removed ""(.*)"" folder, if any, in ""(.*)""")]
         public void GivenIHaveRemovedFolderIfAnyIn(string folderName, string folderPath)
         {
-            var fullPath = $"{folderPath}\\{folderName}";
-            if (Directory.Exists(fullPath))
-            {
-                Directory.Delete(fullPath, true);
-            }
+            this.App.RemoveFolder(folderName, folderPath);
         }
 
         [Given(@"I have started Visual Studio (.*)")]

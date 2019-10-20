@@ -68,6 +68,9 @@
   <ItemGroup>
     <None Include="BuildingWpfApp.feature" />
     <None Include="Default.srprofile" />
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Interfaces\Interfaces.csproj">
