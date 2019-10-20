@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7346E567-685F-4383-95BD-8D4CE553B5DA}</ProjectGuid>
+    <ProjectGuid>{0AF08B47-127E-4785-A2B5-DE818226A662}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AutomatedUiTestin</RootNamespace>
-    <AssemblyName>AutomatedUiTestin</AssemblyName>
+    <RootNamespace>TestFramework</RootNamespace>
+    <AssemblyName>TestFramework</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -42,28 +42,29 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutomationElementExtensions.cs" />
+    <Compile Include="MainWindow.cs" />
+    <Compile Include="OpeningWizardPage1.cs" />
+    <Compile Include="OpeningWizardPage2.cs" />
+    <Compile Include="OpeningWizardPage3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextEditor.cs" />
+    <Compile Include="VisualStudioApp.cs" />
+    <Compile Include="WpfAppWindow.cs" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="FlaUI.UIA2">
+      <Version>2.0.0-rc1</Version>
+    </PackageReference>
+    <PackageReference Include="log4net">
+      <Version>2.0.8</Version>
+    </PackageReference>
     <PackageReference Include="MSTest.TestAdapter">
       <Version>2.0.0</Version>
     </PackageReference>
     <PackageReference Include="MSTest.TestFramework">
       <Version>2.0.0</Version>
     </PackageReference>
-    <PackageReference Include="SpecFlow">
-      <Version>3.0.225</Version>
-    </PackageReference>
-    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation">
-      <Version>3.0.225</Version>
-    </PackageReference>
-    <PackageReference Include="SpecRun.SpecFlow">
-      <Version>3.0.391</Version>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="BuildingWpfApp.feature" />
-    <None Include="Default.srprofile" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Interfaces\Interfaces.csproj">
@@ -73,4 +74,7 @@
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(ProjectDir)bin\Debug\*.dll $(SolutionDir)AutomatedUiTesting\bin\Debug\*.*</PostBuildEvent>
+  </PropertyGroup>
 </Project>
