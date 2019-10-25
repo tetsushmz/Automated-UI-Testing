@@ -77,7 +77,7 @@ namespace TestFramework
             return result;
         }
 
-        public IWpfAppWindow RetryWaitForWpfAppWindow(string title)
+        public IWpfAppWindow GetWpfAppWindow(string title)
         {
             var retryResult = Retry.WhileNull(
                 () => this.FindNewWindow(title),
@@ -88,7 +88,7 @@ namespace TestFramework
             return new WpfAppWindow(result);
         }
 
-        public void RetryWaitForWindowClosed(string title)
+        public void WaitUntilWindowClosed(string title)
         {
             var retryResult = Retry.WhileFalse(
                 () => this.IsWindowClosed(title),

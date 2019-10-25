@@ -10,8 +10,8 @@ namespace Interfaces
 
         IMainWindow GetMainWindow();
 
-        IWpfAppWindow RetryWaitForWpfAppWindow(string title);
+        IWpfAppWindow GetWpfAppWindow(string title);
 
-        void RetryWaitForWindowClosed(string title);
+        void WaitUntilWindowClosed(string title);
     }
 }

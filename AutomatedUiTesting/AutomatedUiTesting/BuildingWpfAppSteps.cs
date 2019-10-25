@@ -67,7 +67,7 @@ namespace AutomatedUiTesting
         [Then(@"A window with ""(.*)"" as its title opens")]
         public void ThenAWindowWithAsItsTitleOpens(string title)
         {
-            this.WpfAppWindow = this.App.RetryWaitForWpfAppWindow(title);
+            this.WpfAppWindow = this.App.GetWpfAppWindow(title);
             this.wpfAppWindowTitle = this.WpfAppWindow.Title;
         }
 
@@ -86,7 +86,7 @@ namespace AutomatedUiTesting
         [Then(@"the window closes")]
         public void ThenTheWindowCloses()
         {
-            this.App.RetryWaitForWindowClosed(this.wpfAppWindowTitle);
+            this.App.WaitUntilWindowClosed(this.wpfAppWindowTitle);
         }
 
         [When(@"Visual Studio (.*) finishes debugging")]
@@ -106,7 +106,7 @@ namespace AutomatedUiTesting
         public void ThenVisualStudioCloses(int p0)
         {
             Logger.Info($"Waiting for Visual Studio main window closed.");
-            this.App.RetryWaitForWindowClosed(this.mainWindowTitle);
+            this.App.WaitUntilWindowClosed(this.mainWindowTitle);
             Logger.Info($"Visual Studio main window is closed.");
             this.App.Dispose();
         }
