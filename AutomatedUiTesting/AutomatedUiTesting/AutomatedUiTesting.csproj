@@ -77,9 +77,9 @@
       <Project>{28deec32-6c28-4d39-bec6-8147822a9b07}</Project>
       <Name>Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TestFrameworkCreator\TestFrameworkCreator.csproj">
-      <Project>{beaea5c7-547e-4d13-a79c-1640fa10a0ad}</Project>
-      <Name>TestFrameworkCreator</Name>
+    <ProjectReference Include="..\Utility\Utility.csproj">
+      <Project>{BEAEA5C7-547E-4D13-A79C-1640FA10A0AD}</Project>
+      <Name>Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

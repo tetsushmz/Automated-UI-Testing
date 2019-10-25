@@ -1,7 +1,7 @@
 ﻿using Interfaces;
 using log4net;
 using TechTalk.SpecFlow;
-using TestFrameworkCreator;
+using Utility;
 
 namespace AutomatedUiTesting
 {
@@ -22,14 +22,14 @@ namespace AutomatedUiTesting
         [Given(@"I have removed ""(.*)"" folder, if any, in ""(.*)""")]
         public void GivenIHaveRemovedFolderIfAnyIn(string folderName, string folderPath)
         {
-            this.App.RemoveFolder(folderName, folderPath);
+            FileManager.RemoveFolderIfExists(folderName, folderPath);
         }
 
         [Given(@"I have started Visual Studio (.*)")]
         public void GivenIHaveStartedVisualStudio(int p0)
         {
             Logger.Info($"Creating VisualStudioApp object.");
-            this.App = Creator.CreateVisualStudioApp();
+            this.App = VisualStudioAppCreator.CreateVisualStudioApp();
             Logger.Info($"Successfully created VisualStudioApp object.");
         }
 

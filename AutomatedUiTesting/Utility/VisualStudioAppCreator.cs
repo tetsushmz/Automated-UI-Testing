@@ -1,9 +1,9 @@
 ﻿using Interfaces;
 using TestFramework;
 
-namespace TestFrameworkCreator
+namespace Utility
 {
-    public static class Creator
+    public static class VisualStudioAppCreator
     {
         public static IVisualStudioApp CreateVisualStudioApp()
         {

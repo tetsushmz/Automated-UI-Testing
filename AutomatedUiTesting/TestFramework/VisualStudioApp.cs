@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using FlaUI.Core;
 using FlaUI.Core.AutomationElements;
@@ -40,23 +39,6 @@ namespace TestFramework
         public AutomationBase Automation { get; }
 
         public Application Application { get; }
-
-        public void RemoveFolder(string folderName, string folderPath)
-        {
-            var fullPath = $"{folderPath}\\{folderName}";
-            if (!Directory.Exists(fullPath))
-            {
-                return;
-            }
-
-            var retryResult = Retry.WhileException(
-                () =>
-                {
-                    Logger.Info($"Trying to remove '{fullPath}'.");
-                    Directory.Delete(fullPath, true);
-                },
-                TimeSpan.FromSeconds(20));
-        }
 
         public void CreateNewWpfApp(ProjectInfo projectInfo)
         {
