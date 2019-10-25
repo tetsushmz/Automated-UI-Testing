@@ -1,10 +1,7 @@
-﻿using System;
-using System.IO;
-using System.Reflection;
-using Interfaces;
+﻿using Interfaces;
 using log4net;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TechTalk.SpecFlow;
+using TestFrameworkCreator;
 
 namespace AutomatedUiTesting
 {
@@ -32,7 +29,7 @@ namespace AutomatedUiTesting
         public void GivenIHaveStartedVisualStudio(int p0)
         {
             Logger.Info($"Creating VisualStudioApp object.");
-            this.App = this.CreateVisualStudioApp();
+            this.App = Creator.CreateVisualStudioApp();
             Logger.Info($"Successfully created VisualStudioApp object.");
         }
 
@@ -112,23 +109,6 @@ namespace AutomatedUiTesting
             this.App.RetryWaitForWindowClosed(this.mainWindowTitle);
             Logger.Info($"Visual Studio main window is closed.");
             this.App.Dispose();
-        }
-
-        private IVisualStudioApp CreateVisualStudioApp()
-        {
-            const string AssemblyString = "TestFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null";
-            Assembly.Load(AssemblyString);
-            Logger.Info("Loaded TestFramework.dll.");
-
-            var type = Type.GetType($"TestFramework.VisualStudioApp, {AssemblyString}");
-            Assert.IsNotNull(type, "Failed to get TestFramework.VisualStudioApp type.");
-
-            var obj = Activator.CreateInstance(type);
-            Assert.IsNotNull(obj, "Failed to instantiate VisualStudioApp object.");
-
-            var result = obj as IVisualStudioApp;
-            Assert.IsNotNull(result, "Instantiated object does not implement IVisualStudioApp interface.");
-            return result;
         }
     }
 }

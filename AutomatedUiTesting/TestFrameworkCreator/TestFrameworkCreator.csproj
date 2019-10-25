@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7346E567-685F-4383-95BD-8D4CE553B5DA}</ProjectGuid>
+    <ProjectGuid>{BEAEA5C7-547E-4D13-A79C-1640FA10A0AD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AutomatedUiTesting</RootNamespace>
-    <AssemblyName>AutomatedUiTesting</AssemblyName>
+    <RootNamespace>TestFrameworkCreator</RootNamespace>
+    <AssemblyName>TestFrameworkCreator</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -42,7 +42,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BuildingWpfAppSteps.cs" />
+    <Compile Include="Creator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -55,31 +55,15 @@
     <PackageReference Include="MSTest.TestFramework">
       <Version>2.0.0</Version>
     </PackageReference>
-    <PackageReference Include="SpecFlow">
-      <Version>3.0.225</Version>
-    </PackageReference>
-    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation">
-      <Version>3.0.225</Version>
-    </PackageReference>
-    <PackageReference Include="SpecRun.SpecFlow">
-      <Version>3.0.391</Version>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="BuildingWpfApp.feature" />
-    <None Include="Default.srprofile" />
-    <None Include="log4net.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Interfaces\Interfaces.csproj">
       <Project>{28deec32-6c28-4d39-bec6-8147822a9b07}</Project>
       <Name>Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TestFrameworkCreator\TestFrameworkCreator.csproj">
-      <Project>{beaea5c7-547e-4d13-a79c-1640fa10a0ad}</Project>
-      <Name>TestFrameworkCreator</Name>
+    <ProjectReference Include="..\TestFramework\TestFramework.csproj">
+      <Project>{0af08b47-127e-4785-a2b5-de818226a662}</Project>
+      <Name>TestFramework</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

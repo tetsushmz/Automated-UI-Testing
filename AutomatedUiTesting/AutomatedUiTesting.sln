@@ -4,13 +4,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.29409.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomatedUiTesting", "AutomatedUiTesting\AutomatedUiTesting.csproj", "{7346E567-685F-4383-95BD-8D4CE553B5DA}"
-	ProjectSection(ProjectDependencies) = postProject
-		{0AF08B47-127E-4785-A2B5-DE818226A662} = {0AF08B47-127E-4785-A2B5-DE818226A662}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\Interfaces.csproj", "{28DEEC32-6C28-4D39-BEC6-8147822A9B07}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFramework", "TestFramework\TestFramework.csproj", "{0AF08B47-127E-4785-A2B5-DE818226A662}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFrameworkCreator", "TestFrameworkCreator\TestFrameworkCreator.csproj", "{BEAEA5C7-547E-4D13-A79C-1640FA10A0AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +29,10 @@ Global
 		{0AF08B47-127E-4785-A2B5-DE818226A662}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0AF08B47-127E-4785-A2B5-DE818226A662}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0AF08B47-127E-4785-A2B5-DE818226A662}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEAEA5C7-547E-4D13-A79C-1640FA10A0AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEAEA5C7-547E-4D13-A79C-1640FA10A0AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEAEA5C7-547E-4D13-A79C-1640FA10A0AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEAEA5C7-547E-4D13-A79C-1640FA10A0AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
