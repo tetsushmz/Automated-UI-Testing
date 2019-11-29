@@ -33,7 +33,7 @@ namespace TestFramework
             this.Application = new Application(process);
             Logger.Info($"Created {nameof(Application)} object.");
 
-            Retry.Timeout = Constants.DefaultTimeout;
+            Retry.DefaultTimeout = Constants.DefaultTimeout;
         }
 
         public AutomationBase Automation { get; }
