@@ -19,7 +19,7 @@ namespace TestFramework
         
         private TextBox SolutionNameTextBox => this.window.RetryFindTextBox("/Custom/Custom/Pane/Edit[2]");
 
-        private ComboBox FrameworkComboBox => this.window.RetryFindComboBox("/Custom/Custom/Pane/ComboBox[2]");
+        private ComboBox FrameworkComboBox => this.window.RetryFindComboBox("/Custom/Custom/Pane/ComboBox");
 
         private Button CreateButton => this.window.RetryFindButton("/Button[3]");
 
