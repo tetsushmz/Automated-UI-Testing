@@ -21,13 +21,27 @@ namespace TestFramework
 
         private string expectedMainWindowTitle;
 
-        public VisualStudioApp()
+        public VisualStudioApp(int version = 2019)
         {
             Logger.Info($"Entered {nameof(VisualStudioApp)} constructor.");
-            var path = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
-            var fullPath = $"{path}\\Microsoft\\Windows\\Start Menu\\Programs\\Visual Studio 2019";
-            var process = Process.Start(fullPath);
-            Logger.Info($"Started Visual Studio 2019.");
+
+            Process p = new Process();
+            // Redirect the output stream of the child process.
+            p.StartInfo.UseShellExecute = false;
+            p.StartInfo.RedirectStandardOutput = true;
+            var programFilesFolder = Environment.GetEnvironmentVariable("ProgramFiles(x86)");
+            p.StartInfo.FileName = programFilesFolder + @"\Microsoft Visual Studio\Installer\vswhere.exe";
+            p.StartInfo.Arguments = "-sort -requires Microsoft.Component.MSBuild -products * -property InstallationPath";
+            p.Start();
+            string output = p.StandardOutput.ReadToEnd();
+            p.WaitForExit();
+            var lines = output.Split('\n');
+            var fullPath = lines.FirstOrDefault(f => f.Contains(version.ToString() + "\\"))?.Trim();
+            if (string.IsNullOrWhiteSpace(fullPath))
+                throw new EntryPointNotFoundException($"Visual Studio {version} install not found");
+            
+            var process = Process.Start(fullPath + @"\Common7\IDE\devenv.exe");
+            Logger.Info($"Started Visual Studio {version}.");
 
             this.Automation = new UIA2Automation();
             this.Application = new Application(process);
